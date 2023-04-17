@@ -15,7 +15,7 @@
         <script src="/js/scripts.js"></script>
         <script src="/js/jquery.js"></script>
         <header>
-            <nav class="navbar navbar-expand-lg bg-light">
+            <nav class="navbar bg-light">
                 <a href="/" class="navbar-brand">
                     <img src="/img/cbv.jpg" class="rounded-circle border border-primary" width="50" alt="Campanha_boa_visao">
                </a>
