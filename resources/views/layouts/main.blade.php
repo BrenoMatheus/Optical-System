@@ -60,18 +60,6 @@
                             Financas
                             </a>
                         </li>  
-                        @auth
-                        <li class="nav-item">
-                            <form action="/logout" method="POST">
-                                @csrf
-                                <a href="/logout" class="nav-link"
-                                    onclick="event.preventDefault();
-                                    this.closest('form').submit();">
-                                    Logout
-                                </a>
-                            </form>
-                        </li>
-                        @endauth
                         @guest
                         <li class="nav-item">
                             <a href="/login" class="nav-link"> Entrar</a>
