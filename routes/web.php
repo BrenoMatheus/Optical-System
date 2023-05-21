@@ -20,4 +20,5 @@ Route::get('/', function () {
 });
 
 Route::get('/location/create-local', [LocalController::class, 'create']);
+Route::get('/local/{id}', [LocalController::class, 'show']);
 
