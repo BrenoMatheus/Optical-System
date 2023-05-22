@@ -14,4 +14,15 @@ class LocalController extends Controller
         $locals = Local::paginate(10);
         return view('location.locals', ['locals' => $locals]);
     }
+    public function store(Request $request){
+        $local = new Local;
+        
+        $local->local = $request->local;
+        $local->contato = $request->contato;
+        $local->telefone = $request->telefone;
+        $local->observacao = $request->observacao;
+        
+        $local->save(); 
+        return redirect('/locals')->with ('msg','Local cadastrados com sucesso!');
+     }
 }
