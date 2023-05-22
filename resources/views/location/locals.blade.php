@@ -12,5 +12,8 @@
             <h5 id="qtde" class="text-light" ></h5>
         </div>
     </div>
+    <div class="col-auto p-2 pt-4">
+        <a class="btn btn-success" href="/local/create-local">Cadastrar Local</a>
+    </div>
 </div>
 @endsection
