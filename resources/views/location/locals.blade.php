@@ -52,5 +52,17 @@
         </div> 
     </div>
 </div>
+<script type="text/javascript">
 
+  $('#pesquisar').keyup(function(){
+    if($('#pesquisar').val().length >= 3){
+        var load = '';
+        load +='<div class="spinner-grow text-info" role="status">';
+        load +='<span class="visually-hidden">Loading...</span>';
+        load += '</div>';
+      $('#qtde').html(load);
+     
+    }
+  });
+</script>
 @endsection
