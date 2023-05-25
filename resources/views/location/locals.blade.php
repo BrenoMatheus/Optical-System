@@ -73,6 +73,12 @@
           html += '<a href="/local/'+data.posts[i].id+'" class="btn col-auto  btn-info"><img src="/img/icons/eye-outline.svg" class="icon"></a>';
           html += '<a href="/local/edit/'+data.posts[i].id+'" class="btn col-auto btn-warning"><img src="/img/icons/create-outline.svg" class="icon"></a>';
                 }
+        if(data.posts.length!=0){
+          $("#display").html(html);
+        }else{
+          $('#qtde').html("Nenhum Local foi encontrado! - <a href='/locals' class='fw-bold text-dark'> Ver todos!</a>");
+          $("#display").html("");
+        }
       });
      
     }
