@@ -39,6 +39,6 @@ class LocalController extends Controller
      }
      public function show($id){
         $local = Local::findOrFail($id);
-        return view('local.show-local',['local' => $local]);
+        return view('location.show-local',['local' => $local]);
     }
 }
