@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 use App\Models\Local;
@@ -24,5 +25,16 @@ class LocalController extends Controller
         
         $local->save(); 
         return redirect('/locals')->with ('msg','Local cadastrados com sucesso!');
+     }
+     public function pesquisar(Request $request)
+     {
+       $search = request('pesquisar');
+       $dados = [];
+       $dados['url'] = url('/');
+       $dados['posts'] = DB::table('locals')
+         ->select('locals.*')
+         ->where('local', 'like', '%'.$search.'%')
+         ->get();
+       return response()->json($dados);
      }
 }
