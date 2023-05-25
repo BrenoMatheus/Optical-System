@@ -64,7 +64,15 @@
       $.get("{!! url('pesquisa-local') !!}", {pesquisar:$('#pesquisar').val()},function(data){
 	    $('#qtde').html(data.posts.length.toString()+" Resultados - <a href='/locals' class='fw-bold text-dark'> Voltar!</a>");
       $('#all').remove();
-       
+      var html = "";
+        for (var i = 0; i < data.posts.length; i++) {
+          html += '<tr><td>'+data.posts[i].local+'</td>';
+          html += '<td>'+data.posts[i].contato+'</td>';
+          html += '<td>'+data.posts[i].telefone+'</td>';
+          html += '<td class="row">';
+          html += '<a href="/local/'+data.posts[i].id+'" class="btn col-auto  btn-info"><img src="/img/icons/eye-outline.svg" class="icon"></a>';
+          html += '<a href="/local/edit/'+data.posts[i].id+'" class="btn col-auto btn-warning"><img src="/img/icons/create-outline.svg" class="icon"></a>';
+                }
       });
      
     }
