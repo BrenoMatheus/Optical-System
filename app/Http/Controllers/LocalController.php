@@ -37,4 +37,8 @@ class LocalController extends Controller
          ->get();
        return response()->json($dados);
      }
+     public function show($id){
+        $local = Local::findOrFail($id);
+        return view('local.show-local',['local' => $local]);
+    }
 }
