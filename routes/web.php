@@ -23,3 +23,4 @@ Route::get('/local/create-local', [LocalController::class, 'create']);
 Route::get('/locals', [LocalController::class, 'dashboard']);
 Route::post('/local', [LocalController::class, 'store']);
 Route::get('/pesquisa-local',[LocalController::class, 'pesquisar']);
+Route::get('/local/{id}', [LocalController::class, 'show']);
