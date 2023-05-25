@@ -62,7 +62,7 @@
         load += '</div>';
       $('#qtde').html(load);
       $.get("{!! url('pesquisa-local') !!}", {pesquisar:$('#pesquisar').val()},function(data){
-	  $('#qtde').html(data.posts.length.toString()+" Resultados - <a href='/locals' class='fw-bold text-dark'> Voltar!</a>");
+	    $('#qtde').html(data.posts.length.toString()+" Resultados - <a href='/locals' class='fw-bold text-dark'> Voltar!</a>");
       
        
       });
