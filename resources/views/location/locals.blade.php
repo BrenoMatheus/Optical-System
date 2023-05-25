@@ -61,6 +61,11 @@
         load +='<span class="visually-hidden">Loading...</span>';
         load += '</div>';
       $('#qtde').html(load);
+      $.get("{!! url('pesquisa-local') !!}", {pesquisar:$('#pesquisar').val()},function(data){
+	  $('#qtde').html(data.posts.length.toString()+" Resultados - <a href='/locals' class='fw-bold text-dark'> Voltar!</a>");
+      
+       
+      });
      
     }
   });
