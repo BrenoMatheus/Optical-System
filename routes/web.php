@@ -26,3 +26,4 @@ Route::get('/pesquisa-local',[LocalController::class, 'pesquisar']);
 Route::get('/local/{id}', [LocalController::class, 'show']);
 Route::delete('/local/{id}', [LocalController::class, 'destroy']);
 Route::get('/local/edit/{id}', [LocalController::class, 'edit']);
+Route::put('/local/update/{id}', [LocalController::class, 'update']);
