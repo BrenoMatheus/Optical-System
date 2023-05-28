@@ -24,7 +24,7 @@
                <div class="row p-3 justify-content-center">                  
                    <div class="col">
                     <label class="form-label fw-bold">Observação:</label>
-                    <input type="text" class="form-control" name="observacao" id="observacao" value="{{$local->endereco}}" >                   
+                    <input type="text" class="form-control" name="observacao" id="observacao" value="{{$local->observacao}}" >                   
                   </div> 
                   <div class="col">
                     <label class="form-label fw-bold">telefone Principal:</label>
