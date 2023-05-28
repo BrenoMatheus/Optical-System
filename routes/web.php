@@ -19,11 +19,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/local/create-local', [LocalController::class, 'create']);
-Route::get('/locals', [LocalController::class, 'dashboard']);
-Route::post('/local', [LocalController::class, 'store']);
-Route::get('/pesquisa-local',[LocalController::class, 'pesquisar']);
-Route::get('/local/{id}', [LocalController::class, 'show']);
-Route::delete('/local/{id}', [LocalController::class, 'destroy']);
-Route::get('/local/edit/{id}', [LocalController::class, 'edit']);
-Route::put('/local/update/{id}', [LocalController::class, 'update']);
+
+
+// Locals
+Route::get('/local/create-local', [LocalController::class, 'create'])->middleware('auth');
+Route::get('/locals', [LocalController::class, 'dashboard'])->middleware('auth');
+Route::post('/local', [LocalController::class, 'store'])->middleware('auth');
+Route::get('/pesquisa-local',[LocalController::class, 'pesquisar'])->middleware('auth');
+Route::get('/local/{id}', [LocalController::class, 'show'])->middleware('auth');
+Route::delete('/local/{id}', [LocalController::class, 'destroy'])->middleware('auth');
+Route::get('/local/edit/{id}', [LocalController::class, 'edit'])->middleware('auth');
+Route::put('/local/update/{id}', [LocalController::class, 'update'])->middleware('auth');
