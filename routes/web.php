@@ -25,3 +25,4 @@ Route::post('/local', [LocalController::class, 'store']);
 Route::get('/pesquisa-local',[LocalController::class, 'pesquisar']);
 Route::get('/local/{id}', [LocalController::class, 'show']);
 Route::delete('/local/{id}', [LocalController::class, 'destroy']);
+Route::get('/local/edit/{id}', [LocalController::class, 'edit'])->middleware('auth');
