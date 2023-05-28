@@ -30,3 +30,13 @@ Route::get('/local/{id}', [LocalController::class, 'show'])->middleware('auth');
 Route::delete('/local/{id}', [LocalController::class, 'destroy'])->middleware('auth');
 Route::get('/local/edit/{id}', [LocalController::class, 'edit'])->middleware('auth');
 Route::put('/local/update/{id}', [LocalController::class, 'update'])->middleware('auth');
+
+// Pacients
+Route::get('/pesquisa-paciente',[PacientController::class, 'pesquisar'])->middleware('auth');
+Route::get('/pacients/create-pacient', [PacientController::class, 'create'])->middleware('auth');
+Route::post('/pacients', [PacientController::class, 'store'])->middleware('auth');
+Route::get('/pacients/{id}', [PacientController::class, 'show'])->middleware('auth');
+Route::delete('/pacients/{id}', [PacientController::class, 'destroy'])->middleware('auth');
+Route::get('/pacients/edit/{id}', [PacientController::class, 'edit'])->middleware('auth');
+Route::put('/pacients/update/{id}', [PacientController::class, 'update'])->middleware('auth');
+Route::get('/pacientes', [PacientController::class, 'dashboard'])->middleware('auth');
