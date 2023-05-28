@@ -46,6 +46,11 @@ class LocalController extends Controller
         return redirect('/locals')->with('msg', 'Local excluido com succeso!');
       }
 
+      public function update(Request $request){
+        $data = $request->all();
+        Local::findOrFail($request->id)->update($data);
+        return redirect('/locals')->with('msg', 'Cadastro do local editado com sucesso!');
+    }
       public function edit($id){
         $local = Local::findOrFail($id);
         return view('location.edit-local', ['local' => $local]);
