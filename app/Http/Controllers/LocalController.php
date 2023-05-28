@@ -41,4 +41,8 @@ class LocalController extends Controller
         $local = Local::findOrFail($id);
         return view('location.show-local',['local' => $local]);
     }
+    public function destroy($id){
+      Local::findOrFail($id)->delete();
+      return redirect('/locals')->with('msg', 'Local excluido com succeso!');
+  }
 }
