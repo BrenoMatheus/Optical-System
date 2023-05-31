@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\LocalController;
+use App\Http\Controllers\PacientController;
 
 Route::get('/', function () {
     return view('welcome');
