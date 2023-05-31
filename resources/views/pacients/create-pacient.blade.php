@@ -7,7 +7,7 @@
                 <h4 class="card-title text-center fw-bold">Paciente</h4>           
               </div>
               <div class="card-body">       
-            
+              
             </div>
         </div>
 @endsection
