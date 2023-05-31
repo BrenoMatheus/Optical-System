@@ -29,7 +29,9 @@
                         <span id="msgAlertaSituacao"></span>  
                               <label for="validationCustom04" class="form-label fw-bold">Local:</label>
                               <select class="form-select" id="local" name="local" required> 
-                                                            
+                                @foreach($locals as $local)
+                                <option value="{{$local->id}}">{{$local->local}}</option> 
+                                @endforeach                             
                               </select>
                             </div> 
                    <div class="col">
@@ -40,7 +42,23 @@
               
             <div class="row p-1 justify-content-center">
                  <div class="col-auto">
-              
+              <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="doencas[]" value="Catarata">
+                  <label class="form-check-label fw-bold" for="inlineCheckbox1">Catarata</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="doencas[]" value="Diabetes">
+                  <label class="form-check-label fw-bold" for="inlineCheckbox2">Diabetes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="doencas[]" value="Pressão alta">
+                  <label class="form-check-label fw-bold" for="inlineCheckbox3">Pressão alta</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="doencas[]" value="Sem doenças">
+                  <label class="form-check-label fw-bold" for="inlineCheckbox3">Sem doenças</label>
+                </div>
+                </div>
                 </div> 
                 <div class="row p-3 justify-content-center">
                     <label class="form-label fw-bold">Observação</label>
