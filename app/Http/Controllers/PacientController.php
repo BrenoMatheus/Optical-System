@@ -14,4 +14,18 @@ class PacientController extends Controller
         $locals = Local::all();
         return view('pacients.create-pacient', ['locals'=>$locals]);
     }   
+    public function store(Request $request){
+        $pacient = new Pacient;
+        $pacient->nome = $request->nome;
+        $pacient->data = $request->data;
+        $pacient->telefone = $request->telefone;
+        $pacient->local_id = $request->local;
+        $pacient->endereco = $request->endereco;
+        $pacient->observacao = $request->obs;
+        $pacient->doencas = $request->doencas;
+        $user = auth()->user();
+        $pacient->user_id = $user->id;
+        $pacient->save(); 
+        return redirect('/pacientes')->with ('msg','paciente criado com sucesso!');
+     }
 }
