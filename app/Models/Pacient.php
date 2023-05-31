@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Pacient extends Model
 {
     use HasFactory;
+    
+    protected $casts = [
+        'doencas' => 'array'
+    ];
+  
 }
