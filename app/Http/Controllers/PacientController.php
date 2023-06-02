@@ -28,4 +28,16 @@ class PacientController extends Controller
         $pacient->save(); 
         return redirect('/pacientes')->with ('msg','paciente criado com sucesso!');
      }
+     public function dashboard(){
+        $user = auth()->user();
+        $pacients = DB::table('pacients')
+        ->join('locals', 'pacients.local_id', '=', 'locals.id')
+        ->orderBy('id', 'DESC')
+        ->select('locals.local','pacients.*') 
+        ->paginate(12);
+        // dd($pacients);
+        $exames = Exame::all();
+        $pacientsAsParticipant = $user->pacientsAsParticipant;
+        return view('pacients.pacients', ['exames' => $exames,'pacients' => $pacients, 'pacientsAsParticipant' => $pacientsAsParticipant]);
+    }
 }
