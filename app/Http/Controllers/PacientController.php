@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Local;
 use App\Models\Pacient;
+
 
 class PacientController extends Controller
 {
@@ -36,8 +38,7 @@ class PacientController extends Controller
         ->select('locals.local','pacients.*') 
         ->paginate(12);
         // dd($pacients);
-        $exames = Exame::all();
         $pacientsAsParticipant = $user->pacientsAsParticipant;
-        return view('pacients.pacients', ['exames' => $exames,'pacients' => $pacients, 'pacientsAsParticipant' => $pacientsAsParticipant]);
+        return view('pacients.pacients', ['pacients' => $pacients, 'pacientsAsParticipant' => $pacientsAsParticipant]);
     }
 }
