@@ -12,5 +12,6 @@ class Pacient extends Model
     protected $casts = [
         'doencas' => 'array'
     ];
-  
+    
+    protected $guarded = [];
 }
