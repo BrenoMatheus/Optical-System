@@ -56,4 +56,8 @@ class PacientController extends Controller
         Pacient::findOrFail($request->id)->update($data);
         return redirect('/pacientes')->with('msg', 'Cadastro do paciente editado com sucesso!');
     }
+    public function show($id){
+        $pacient = Pacient::findOrFail($id);
+        return view('pacients.show-pacient',['pacient' => $pacient]);
+    }
 }
