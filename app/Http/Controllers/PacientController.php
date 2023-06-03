@@ -45,4 +45,9 @@ class PacientController extends Controller
         Pacient::findOrFail($id)->delete();
         return redirect('/pacientes')->with('msg', 'Paciente excluido com succeso!');
     }
+    public function edit($id){
+        $pacient = Pacient::findOrFail($id);
+        $locals = Local::all();      
+        return view('pacients.edit-pacient', ['pacient' => $pacient, 'locals'=>$locals]);
+    }
 }
