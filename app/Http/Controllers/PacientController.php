@@ -41,4 +41,8 @@ class PacientController extends Controller
         $pacientsAsParticipant = $user->pacientsAsParticipant;
         return view('pacients.pacients', ['pacients' => $pacients, 'pacientsAsParticipant' => $pacientsAsParticipant]);
     }
+    public function destroy($id){
+        Pacient::findOrFail($id)->delete();
+        return redirect('/pacientes')->with('msg', 'Paciente excluido com succeso!');
+    }
 }
