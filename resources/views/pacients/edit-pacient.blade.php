@@ -13,7 +13,7 @@
                @method('PUT')          
                  <div class="row p-3 justify-content-between">   
                   <div class="col-auto ">
-                    <input type="date" class="form-control fw-bold" name="data" id="data" value="{{ $pacient->data->format('Y-m-d') }}" required>  
+                    <input type="date" class="form-control fw-bold" name="data" id="data" value="{{ $pacient->data }}" required>  
                   </div>  
               </div>
               <div class="row p-3 justify-content-center">                  
