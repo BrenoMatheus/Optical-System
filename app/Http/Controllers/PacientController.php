@@ -60,4 +60,17 @@ class PacientController extends Controller
         $pacient = Pacient::findOrFail($id);
         return view('pacients.show-pacient',['pacient' => $pacient]);
     }
+    public function pesquisar(Request $request)
+    {
+      $search = request('pesquisar');
+      $dados = [];
+      $dados['url'] = url('/');
+      $dados['posts'] = DB::table('pacients')
+        ->join('locals', 'pacients.local_id', '=', 'locals.id')
+        ->select('locals.local','pacients.*')
+        ->where('nome', 'like', '%'.$search.'%')
+        ->orWhere('pacients.id', 'like', '%'.$search.'%')
+        ->get();
+      return response()->json($dados);
+    }
 }
