@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string("doencas")->nullable();;
             $table->text("observacao")->nullable();;
             $table->string("image")->nullable();;
-            $table->dateTime('data');
+            $table->date('data');
              $table->foreignId('local_id')->constrained();
             $table->foreignId('user_id')->nullable()->constrained();
         });
