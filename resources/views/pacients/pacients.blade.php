@@ -66,9 +66,8 @@
             html += '<div class="col-6">';
             html += '<div class="card text-center" >';
             html += '<div class="card-body fw-bold">';
-            html += '<p>OS: '+data.posts[i].os+'</p>';
-            html += '<p>DATA: '+data.posts[i].data+'</p>';
             html += '<p>NOME: '+data.posts[i].nome+'</p>';
+            html += '<p>DATA: '+data.posts[i].data+'</p>';
             html += '<p>LOCAL: '+data.posts[i].local+'</p>';
             html += '<a href="/pacients/edit/'+data.posts[i].id+'" class="btn btn-outline-warning w-100 mb-2">Editar</a> ';
             html += '<form action="/pacients/'+data.posts[i].id+'" method="POST">';
