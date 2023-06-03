@@ -50,4 +50,10 @@ class PacientController extends Controller
         $locals = Local::all();      
         return view('pacients.edit-pacient', ['pacient' => $pacient, 'locals'=>$locals]);
     }
+
+    public function update(Request $request){
+        $data = $request->all();
+        Pacient::findOrFail($request->id)->update($data);
+        return redirect('/pacientes')->with('msg', 'Cadastro do paciente editado com sucesso!');
+    }
 }
