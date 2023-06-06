@@ -43,4 +43,11 @@ Route::put('/pacients/update/{id}', [PacientController::class, 'update'])->middl
 Route::get('/pacientes', [PacientController::class, 'dashboard'])->middleware('auth');
 
 // Exames
-Route::get('/exame/create-exame/{id}', [ExameController::class, 'create'])->middleware('auth');
+Route::get('/exame/create-exame/{id}', [ExameController::class, 'create'])->middleware('auth'); //creation of a route to redirect to a function "create"
+Route::get('/pesquisa-exame',[ExameController::class, 'pesquisar'])->middleware('auth');//creation of a route to redirect to a function "pesquisar"
+Route::post('/exame', [ExameController::class, 'store'])->middleware('auth');//creation of a route to redirect to a function "store"
+Route::get('/exame/{id}', [ExameController::class, 'show'])->middleware('auth');//creation of a route to redirect to a function "show"
+Route::delete('/exame/{id}', [ExameController::class, 'destroy'])->middleware('auth');//creation of a route to redirect to a function "destroy"
+Route::get('/exame/edit/{id}', [ExameController::class, 'edit'])->middleware('auth');//creation of a route to redirect to a function "edit"
+Route::put('/exame/update/{id}', [ExameController::class, 'update'])->middleware('auth');//creation of a route to redirect to a function "update"
+Route::get('/exames', [ExameController::class, 'dashboard'])->middleware('auth');//creation of a route to redirect to a function "dashboard"
