@@ -30,7 +30,15 @@
                             @endforeach
                            @endif
                         </ul> 
+                    @if($disabled == 1)
                     </div>
+                    @else
+                    
+                        @if(!$hasUserJoined)
+                        <p class="alert alert-danger">Paciente ainda não foi examinado!</p>                        
+                        @else
+                        <h5 class="alert alert-success">Paciente foi examinado! - Click aqui para visualizar: <a href="/exame/{{ $exame->id }}" class="alert-link">Exame</a></h5>
+                        @endif
                     </div>
                    
                     <div class="card-footer row">
@@ -47,6 +55,7 @@
                             </form>
                         </div>                      
                     </div>
+                    @endif
                 </div>
         </div>
        
