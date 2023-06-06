@@ -41,3 +41,6 @@ Route::delete('/pacients/{id}', [PacientController::class, 'destroy'])->middlewa
 Route::get('/pacients/edit/{id}', [PacientController::class, 'edit'])->middleware('auth');
 Route::put('/pacients/update/{id}', [PacientController::class, 'update'])->middleware('auth');
 Route::get('/pacientes', [PacientController::class, 'dashboard'])->middleware('auth');
+
+// Exames
+Route::get('/exame/create-exame/{id}', [ExameController::class, 'create'])->middleware('auth');
