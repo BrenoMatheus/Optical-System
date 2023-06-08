@@ -22,6 +22,7 @@ return new class extends Migration
             $table->dateTime('data'); // date of examination
             $table->foreignId('user_id')->constrained(); //foreign key of the user who created the examination
             $table->foreignId('pacient_id')->constrained(); //foreign key of the patient to whom the examination refers
+            $table->foreignId('local_id')->constrained(); //foreign key of the location who created the examination
         });
     }
 
@@ -35,6 +36,9 @@ return new class extends Migration
             ->constrained()
             ->onDelete('cascade');
             $table->foreingId('pacient_id')
+            ->constrained()
+            ->onDelete('cascade');
+            $table->foreingId('local_id')
             ->constrained()
             ->onDelete('cascade');
         });
