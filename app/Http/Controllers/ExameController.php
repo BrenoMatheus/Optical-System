@@ -20,4 +20,27 @@ class ExameController extends Controller
         $user = auth()->user();      
         return view('exame.create-exame',['pacient' => $pacient,'local' => $local, 'user'=> $user->name,'disabled' => $disabled]);
     }
+
+    public function store(Request $request){
+        $exame = new Exame;
+        $exame->doutor = $request->doutor;
+        $exame->diagnostico = $request->diagnostico;
+        $exame->indicacao = $request->indicacao;
+        $exame->observacao = $request->observacao;
+        $exame->data = $request->data;
+        $exame->pacient_id = $request->pacient_id;
+        $exame->local_id = $request->local;
+         //    image upload
+         if($request->hasfile('image_exame') && $request->file('image_exame')->isValid()){
+            $requestImage = $request->image_exame;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $requestImage->move(public_path('img/exames'), $imageName);
+            $exame->image_exame = $imageName;
+        }else{$exame->image_exame ="exame.jpg";}
+            $user = auth()->user();
+            $exame->user_id = $user->id;
+            $exame->save(); 
+            return redirect('/exames')->with ('msg','Exame criado com sucesso!');
+     }
 }
