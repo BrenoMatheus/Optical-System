@@ -43,4 +43,15 @@ class ExameController extends Controller
             $exame->save(); 
             return redirect('/exames')->with ('msg','Exame criado com sucesso!');
      }
+
+     public function dashboard(){    
+        $exames = DB::table('exames')
+        ->rightJoin('pacients','exames.pacient_id','=','pacients.id')
+        ->join('locals','pacients.local_id','=','locals.id')
+        ->orderBy('id','desc')
+        ->select('locals.local','pacients.nome','pacients.id as id_pac','pacients.doencas','pacients.data as data_pac','exames.*')
+        ->paginate(10);
+        
+        return view('exame.exames', ['exames' => $exames]);
+    }
 }
