@@ -21,7 +21,7 @@ class ExameController extends Controller
         $user = auth()->user();      
         return view('exame.create-exame',['pacient' => $pacient,'local' => $local, 'user'=> $user->name,'disabled' => $disabled]);
     }
-}
+
 public function store(Request $request){
     $exame = new Exame;
     $exame->doutor = $request->doutor;
