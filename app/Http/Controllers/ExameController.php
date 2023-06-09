@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Pacient;
 use App\Models\Exame;
@@ -43,6 +44,23 @@ class ExameController extends Controller
             $exame->save(); 
             return redirect('/exames')->with ('msg','Exame criado com sucesso!');
      }
+
+     public function pesquisar(Request $request)
+    {
+      $search = request('pesquisar');
+      $dados = [];
+      $dados['url'] = url('/');
+      $dados['posts'] = DB::table('exames')
+        ->join('pacients','exames.pacient_id','=','pacients.id')
+        ->join('locals','exames.local_id','=','locals.id')
+        ->where('pacients.nome', 'like', '%'.$search.'%')
+        ->orWhere('exames.id', 'like', '%'.$search.'%')
+        ->orWhere('locals.local', 'like', '%'.$search.'%')
+        ->orderBy('exames.id','desc')
+        // ->select('locals.local','pacients.nome','exames.*')
+        ->get();
+      return response()->json($dados);
+    }
 
      public function dashboard(){    
         $exames = DB::table('exames')
