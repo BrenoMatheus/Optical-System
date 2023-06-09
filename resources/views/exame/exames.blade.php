@@ -56,7 +56,6 @@
                 <p>Local: {{ $exame->local}}</p>
                 <p>Data: {{ date('d/m/y', strtotime($exame->data))}}</p>
                 <p>Nome: {{ $exame->nome}}</p>
-                <p>Diag: {{ $exame->diagnostico}}</p>
                 <a href="/exame/edit/{{ $exame->id }}" class="btn btn-outline-warning w-100 mb-2">Editar</a> 
                 <form action="/exame/{{ $exame->id }}" method="POST">
                     @csrf
