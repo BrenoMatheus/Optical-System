@@ -61,8 +61,17 @@ class ExameController extends Controller
         ->get();
       return response()->json($dados);
     }
+    public function show($id){
+        $user = auth()->user();    
+        $disabled = '1';
+        $exame = Exame::findOrFail($id);
+        $local = Local::findOrFail($exame->local_id);
+        $pacient = Pacient::findOrFail($exame->pacient_id);
+        $disabled_exame = '0';
+        return view('exame.show-exame',['local' => $local,'exame' => $exame, 'pacient' => $pacient, 'disabled' => $disabled, 'disabled_exame' => $disabled_exame]);
+    }
 
-     public function dashboard(){    
+    public function dashboard(){    
         $exames = DB::table('exames')
         ->rightJoin('pacients','exames.pacient_id','=','pacients.id')
         ->join('locals','pacients.local_id','=','locals.id')
