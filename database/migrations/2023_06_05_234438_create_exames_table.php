@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string("diagnostico"); // diagnosed diseases
             $table->string("indicacao"); //recommendation of glasses for use
             $table->text("observacao"); //doctor's observations
-            $table->dateTime('data'); // date of examination
+            $table->date('data'); // date of examination
             $table->foreignId('user_id')->constrained(); //foreign key of the user who created the examination
             $table->foreignId('pacient_id')->constrained(); //foreign key of the patient to whom the examination refers
             $table->foreignId('local_id')->constrained(); //foreign key of the location who created the examination
