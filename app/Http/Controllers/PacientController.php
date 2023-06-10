@@ -61,8 +61,10 @@ class PacientController extends Controller
         $pacient = Pacient::findOrFail($id);
         $exame = Exame::where('pacient_id', $pacient->id)->first(); 
         $user = auth()->user();
+        //disable buttons for page reuse 
         $disabled = '0';
         $hasUserJoined = false;
+        // verification if the patient has been examined
         if($exame != null){       
             $hasUserJoined = true;
         }
