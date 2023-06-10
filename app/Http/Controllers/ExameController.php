@@ -81,4 +81,26 @@ public function dashboard(){
     
     return view('exame.exames', ['exames' => $exames]);
 }
+
+public function edit($id){
+    $user = auth()->user();    
+    // disabled button for alteration patient
+    $disabled = '1';
+    // find examination for edition
+    $exame = Exame::findOrFail($id);
+    // find location
+    $local = Local::findOrFail($exame->local_id);
+    // find Patient
+    $pacient = Pacient::findOrFail($exame->pacient_id);
+    return view('exame.edit-exame',['local' => $local,'exame' => $exame, 'pacient' => $pacient,'disabled' => $disabled]);
+}
+
+public function update(Request $request){
+    // request all informations of form
+    $data = $request->all();   
+    // update informations
+    Exame::findOrFail($request->id)->update($data);
+    // redirect for page exames with message of success
+    return redirect('/exames')->with('msg', 'Exame editado com sucesso!');
+}
 }
