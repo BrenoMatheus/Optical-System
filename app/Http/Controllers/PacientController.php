@@ -43,6 +43,11 @@ class PacientController extends Controller
         return view('pacients.pacients', ['pacients' => $pacients, 'pacientsAsParticipant' => $pacientsAsParticipant]);
     }
     public function destroy($id){
+        //Add function to delete examination to avoid having examinations without patients
+        $exame =  Exame::where('pacient_id', $id)->first();
+        if ($exame != null) {
+            Exame::findOrFail('pacient_id', $id)->first()->delete();
+        }
         Pacient::findOrFail($id)->delete();
         return redirect('/pacientes')->with('msg', 'Paciente excluido com succeso!');
     }
@@ -84,4 +89,5 @@ class PacientController extends Controller
         ->get();
       return response()->json($dados);
     }
+    
 }
