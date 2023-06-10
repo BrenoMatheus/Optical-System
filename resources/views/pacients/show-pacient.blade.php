@@ -17,7 +17,7 @@
                     <div class="card-body fw-bold  bg-gradient">
                         <h4 class="card-text">Nome: {{ $pacient->nome }}</h4>
                         <h4 class="card-text">Telefone: {{ $pacient->telefone }}</h4>
-                        <h4 class="card-text">Local: {{ $pacient->local }}</h4>
+                        <h4 class="card-text">Local: {{ $local->local }}</h4>
                         <h4 class="card-text">Endereço: {{ $pacient->endereco }}</h4>
                         <h4 class="card-text">Observação: {{ $pacient->observacao }}</h4>
                         <h3 class="border-top p-2">O paciente é diagnosticado com:</h3>

@@ -60,6 +60,7 @@ class PacientController extends Controller
     public function show($id){
         $pacient = Pacient::findOrFail($id);
         $exame = Exame::where('pacient_id', $pacient->id)->first(); 
+        $local = Local::findOrFail($pacient->local_id);
         $user = auth()->user();
         //disable buttons for page reuse 
         $disabled = '0';
@@ -68,7 +69,7 @@ class PacientController extends Controller
         if($exame != null){       
             $hasUserJoined = true;
         }
-        return view('pacients.show-pacient',['exame' => $exame, 'pacient' => $pacient, 'hasUserJoined' => $hasUserJoined,'disabled' => $disabled]);
+        return view('pacients.show-pacient',['exame' => $exame,'local' => $local, 'pacient' => $pacient, 'hasUserJoined' => $hasUserJoined,'disabled' => $disabled]);
     }
     public function pesquisar(Request $request)
     {
