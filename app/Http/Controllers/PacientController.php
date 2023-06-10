@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Models\Local;
 use App\Models\Pacient;
+use App\Models\Exame;
 
 
 class PacientController extends Controller
@@ -58,7 +59,14 @@ class PacientController extends Controller
     }
     public function show($id){
         $pacient = Pacient::findOrFail($id);
-        return view('pacients.show-pacient',['pacient' => $pacient]);
+        $exame = Exame::where('pacient_id', $pacient->id)->first(); 
+        $user = auth()->user();
+        $disabled = '0';
+        $hasUserJoined = false;
+        if($exame != null){       
+            $hasUserJoined = true;
+        }
+        return view('pacients.show-pacient',['exame' => $exame, 'pacient' => $pacient, 'hasUserJoined' => $hasUserJoined,'disabled' => $disabled]);
     }
     public function pesquisar(Request $request)
     {
