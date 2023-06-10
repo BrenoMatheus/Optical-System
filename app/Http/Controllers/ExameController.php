@@ -103,4 +103,9 @@ public function update(Request $request){
     // redirect for page exames with message of success
     return redirect('/exames')->with('msg', 'Exame editado com sucesso!');
 }
+
+public function destroy($id){
+    $exame = Exame::findOrFail($id)->delete();     
+    return redirect('/exames')->with('msg', 'Exame excluido com succeso!');
+}
 }
