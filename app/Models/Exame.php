@@ -12,4 +12,8 @@ class Exame extends Model
         'diagnostico' => 'array',
         'indicacao' => 'array'
     ];
+
+    protected $dates = ['data'];
+    // add token
+    protected $guarded = [];
 }
